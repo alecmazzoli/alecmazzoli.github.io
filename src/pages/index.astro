@@ -5,6 +5,7 @@ import MobileSocials from '@components/home/MobileSocials.astro';
 import { Pill } from '@eliancodes/brutal-ui';
 import { Button } from '@eliancodes/brutal-ui';
 import { Card } from '@eliancodes/brutal-ui';
+import authorPic from '../../src/assets/about2.jpg';
 
 const poems = [
   { name: 'Proposed Commercial for Dial Soap', location:'GAMS', url: 'https://gamszine.weebly.com/uploads/5/1/7/0/51707709/december2015gams.pdf' },
@@ -53,7 +54,7 @@ const games = [
         </Card>
       </div>
       <div class='col-span-2'>
-        <img class="image-shadow" src="../src/assets/about2.jpg" alt="Picture of Alec" width="100%" height="100%" >
+        <img class="image-shadow" src={authorPic.src} alt="Picture of Alec" width="100%" height="100%" >
       </div>
       <div class='col-span-3'>
         <Card>
