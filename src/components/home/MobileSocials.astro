@@ -29,7 +29,7 @@ const socials = [
     {
       socials.map((item) => (
         <li class='bg-white px-4 py-2 text-green border-black border-2 rounded card-shadow'>
-          <a href={item.url} target='_blank' title={`Go to ${item.name}`}>
+          <a href={item.url} target='_blank' title={item.url}>
             <div class:list={[item.icon, 'p-6']} />
           </a>
         </li>
