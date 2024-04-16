@@ -6,20 +6,26 @@ import { Pill } from '@eliancodes/brutal-ui';
 import { Button } from '@eliancodes/brutal-ui';
 import { Card } from '@eliancodes/brutal-ui';
 
-const builtWith = [
-  { name: 'Astro', url: 'https://astro.build/' },
-  { name: 'UnoCSS', url: 'https://uno.antfu.me/' },
-  {
-    name: 'Content Collections',
-    url: 'https://docs.astro.build/en/guides/content-collections/',
-  },
-  { name: 'RSS', url: 'https://docs.astro.build/en/guides/rss/' },
-  {
-    name: 'Sitemap',
-    url: 'https://docs.astro.build/en/guides/integrations-guide/sitemap/',
-  },
-  { name: 'Vercel', url: 'https://vercel.com' },
-  { name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
+const poems = [
+  { name: 'Proposed Commercial for Dial Soap | GAMS', url: 'https://astro.build/' },
+  { name: 'Death Uses a Lot of Laundry Detergent | The Kenyon Review', url: 'https://uno.antfu.me/' },
+  { name: 'Mimic Octopus | Four Chambers', url: 'https://docs.astro.build/en/guides/content-collections/' },
+  { name: 'Fragment Series IV | Juked', url: 'https://docs.astro.build/en/guides/rss/' },
+  { name: '3 Poems | Menacing Hedge', url: 'https://docs.astro.build/en/guides/integrations-guide/sitemap/'},
+  { name: '2 Poems | Hermeneutic Chaos Journal', url: 'https://vercel.com' },
+  { name: 'CONCENTRATE AND ASK AGAIN | poets.org', url: 'https://www.typescriptlang.org/' },
+  { name: 'To the Tiny Boat in the School Fountain | Rabbit Catastrophe Review', url: 'https://docs.astro.build/en/guides/integrations-guide/sitemap/'},
+  { name: 'Cyparissus Appeals to Apollo for Transmutation | Nimbus', url: 'https://vercel.com' },
+  { name: '1 Poem | Reed Magazine', url: 'https://www.typescriptlang.org/' },
+];
+
+const fiction = [
+  { name: 'The Head | Moledro Magazine', url: 'https://astro.build/' },
+  { name: 'The Death of Emmeline | Nimbus', url: 'https://uno.antfu.me/' },
+];
+
+const games = [
+  { name: 'Asphodel', url: 'https://astro.build/' },
 ];
 ---
 
@@ -35,30 +41,26 @@ const builtWith = [
       <div class='col-span-4'>
         <Card>
           <div class='flex flex-col justify-between items-start gap-4'>
-            <p class='mt-4 outfit text-2xl md:text-5xl lg:text-7xl'>
-              Brutal theme for <a
-                class='text-white'
-                target='_blank'
-                href='https://astro.build/'>Astro</a
-              >
-            </p>
-            <p class='mt-2 outfit text-xl md:text-3xl lg:text-5xl'>
-              A minimalistic, neobrutalism theme for Astro.
+            <h2 class='text-2xl md:text-4xl lg:text-4xl mb-8 dm-serif'>
+              About
+            </h2>
+            <p class='mt-2 outfit text-xl md:text-3xl lg:text-2xl'>
+              Alec grew up in Greenville, South Carolina. He received his bachelor's degree in Computer Science from Bryn Mawr College in Pennsylvania. Now he works as a software developer in Seattle, where he lives with his partner and one cat. He loves cooking, collaging, and escape rooms. He is on a quest to watch every horror movie that's ever been made. 
             </p>
             <Button target={'_self'} href='/blog/'>
-              Check out the blog &rarr;
+              News &rarr;
             </Button>
           </div>
         </Card>
       </div>
-      <div class='col-span-2'>
+      <div class='col-span-3'>
         <Card>
-          <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
-            Brutal is built with
+          <h2 class='text-2xl md:text-4xl lg:text-4xl mb-8 dm-serif'>
+            Poetry
           </h2>
           <ul class='flex gap-4 flex-wrap'>
             {
-              builtWith.map((item) => (
+              poems.map((item) => (
                 <li>
                   <Pill>
                     <a
@@ -78,15 +80,52 @@ const builtWith = [
       </div>
       <div class='col-span-2'>
         <Card>
-          <h2 class='text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif'>
-            What is Brutal?
+          <h2 class='text-2xl md:text-4xl lg:text-4xl mb-4 dm-serif'>
+            Fiction
           </h2>
-          <p class='poppins'>
-            Brutal is a theme built with Astro, UnoCSS by <a
-              href='https://www.elian.codes/'>Elian</a
-            >. It's a simple, fast, and modern theme that is easy to use and
-            customize. Mainly meant to power blogs and personal websites.
-          </p>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              fiction.map((item) => (
+                <li>
+                  <Pill>
+                    <a
+                      class='sanchez'
+                      href={item.url}
+                      target='_blank'
+                      title={`Go to ${item.name}`}
+                    >
+                      {item.name}
+                    </a>
+                  </Pill>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
+      <div class='col-span-2'>
+        <Card>
+          <h2 class='text-2xl md:text-4xl lg:text-4xl mb-4 dm-serif'>
+            Games
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              games.map((item) => (
+                <li>
+                  <Pill>
+                    <a
+                      class='sanchez'
+                      href={item.url}
+                      target='_blank'
+                      title={`Go to ${item.name}`}
+                    >
+                      {item.name}
+                    </a>
+                  </Pill>
+                </li>
+              ))
+            }
+          </ul>
         </Card>
       </div>
     </section>
