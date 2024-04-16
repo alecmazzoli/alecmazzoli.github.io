@@ -7,25 +7,25 @@ import { Button } from '@eliancodes/brutal-ui';
 import { Card } from '@eliancodes/brutal-ui';
 
 const poems = [
-  { name: 'Proposed Commercial for Dial Soap | GAMS', url: 'https://astro.build/' },
-  { name: 'Death Uses a Lot of Laundry Detergent | The Kenyon Review', url: 'https://uno.antfu.me/' },
-  { name: 'Mimic Octopus | Four Chambers', url: 'https://docs.astro.build/en/guides/content-collections/' },
-  { name: 'Fragment Series IV | Juked', url: 'https://docs.astro.build/en/guides/rss/' },
-  { name: '3 Poems | Menacing Hedge', url: 'https://docs.astro.build/en/guides/integrations-guide/sitemap/'},
-  { name: '2 Poems | Hermeneutic Chaos Journal', url: 'https://vercel.com' },
-  { name: 'CONCENTRATE AND ASK AGAIN | poets.org', url: 'https://www.typescriptlang.org/' },
-  { name: 'To the Tiny Boat in the School Fountain | Rabbit Catastrophe Review', url: 'https://docs.astro.build/en/guides/integrations-guide/sitemap/'},
-  { name: 'Cyparissus Appeals to Apollo for Transmutation | Nimbus', url: 'https://vercel.com' },
-  { name: '1 Poem | Reed Magazine', url: 'https://www.typescriptlang.org/' },
+  { name: 'Proposed Commercial for Dial Soap', location:'GAMS', url: 'https://astro.build/' },
+  { name: 'Death Uses a Lot of Laundry Detergent', location: 'The Kenyon Review', url: 'https://uno.antfu.me/' },
+  { name: 'Mimic Octopus', location: 'Four Chambers', url: 'https://docs.astro.build/en/guides/content-collections/' },
+  { name: 'Fragment Series IV', location: 'Juked', url: 'https://docs.astro.build/en/guides/rss/' },
+  { name: '3 Poems', location: 'Menacing Hedge', url: 'https://docs.astro.build/en/guides/integrations-guide/sitemap/'},
+  { name: '2 Poems', location: 'Hermeneutic Chaos Journal', url: 'https://vercel.com' },
+  { name: 'CONCENTRATE AND ASK AGAIN', location: 'poets.org', url: 'https://www.typescriptlang.org/' },
+  { name: 'To the Tiny Boat in the School Fountain', location: 'Rabbit Catastrophe Review', url: 'https://docs.astro.build/en/guides/integrations-guide/sitemap/'},
+  { name: 'Cyparissus Appeals to Apollo for Transmutation', location: 'Nimbus', url: 'https://vercel.com' },
+  { name: '1 Poem', location: 'Reed Magazine', url: 'https://www.typescriptlang.org/' },
 ];
 
 const fiction = [
-  { name: 'The Head | Moledro Magazine', url: 'https://astro.build/' },
-  { name: 'The Death of Emmeline | Nimbus', url: 'https://uno.antfu.me/' },
+  { name: 'The Head', location: "Moledro Magazine", description: 'They say that a person is still conscious up to 4 seconds after being decapitated.', url: 'https://astro.build/' },
+  { name: 'The Death of Emmeline', location: 'Nimbus', description: 'A Birthworld story.', url: 'https://uno.antfu.me/' },
 ];
 
 const games = [
-  { name: 'Asphodel', url: 'https://astro.build/' },
+  { name: 'Asphodel', description: 'A Twine game about a woman trying to find her girlfriend in a strange world.', url: 'https://astro.build/'},
 ];
 ---
 
@@ -38,8 +38,8 @@ const games = [
     <MobileSocials />
     <section id='about' class='grid md:grid-cols-8 gap-8 mt-4'>
       <h2 class='hidden'>About</h2>
-      <div class='col-span-3'>
-        <img class="image-shadow" src="../src/assets/about.jpeg" alt="Picture of Alec" width="50%" height="50%" >
+      <div class='col-span-2'>
+        <img class="image-shadow" src="../src/assets/about.jpeg" alt="Picture of Alec" width="100%" height="100%" >
       </div>
       <div class='col-span-4'>
         <Card>
@@ -65,16 +65,9 @@ const games = [
             {
               poems.map((item) => (
                 <li>
-                  <Pill>
-                    <a
-                      class='sanchez'
-                      href={item.url}
-                      target='_blank'
-                      title={`Go to ${item.name}`}
-                    >
-                      {item.name}
-                    </a>
-                  </Pill>
+                  <Button target='_blank' href={item.url}>
+                    <b>{item.location}</b> | <i>{item.name}</i>
+                  </Button>
                 </li>
               ))
             }
@@ -90,16 +83,9 @@ const games = [
             {
               fiction.map((item) => (
                 <li>
-                  <Pill>
-                    <a
-                      class='sanchez'
-                      href={item.url}
-                      target='_blank'
-                      title={`Go to ${item.name}`}
-                    >
-                      {item.name}
-                    </a>
-                  </Pill>
+                  <Button target='_blank' href={item.url}>
+                    <b>{item.location}</b> | <i>{item.name}:</i> {item.description}
+                  </Button>
                 </li>
               ))
             }
@@ -115,16 +101,9 @@ const games = [
             {
               games.map((item) => (
                 <li>
-                  <Pill>
-                    <a
-                      class='sanchez'
-                      href={item.url}
-                      target='_blank'
-                      title={`Go to ${item.name}`}
-                    >
-                      {item.name}
-                    </a>
-                  </Pill>
+                  <Button target='_blank' href={item.url}>
+                    <i>{item.name}:</i> {item.description}
+                  </Button>
                 </li>
               ))
             }
