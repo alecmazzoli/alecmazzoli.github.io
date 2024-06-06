@@ -28,6 +28,10 @@ const fiction = [
 const games = [
   { name: 'Asphodel', description: 'A Twine game about a woman trying to find her girlfriend in a strange world.', url: 'https://alecmazzoli.itch.io/asphodel'},
 ];
+
+const film = [
+  { name: 'Fear Beer', description: 'An actor decides to confront a movie theater owner about a retrospective he is hosting for her work.', url: 'https://www.youtube.com/watch?v=fjOHFUS9ROo'},
+];
 ---
 
 <Layout
@@ -96,6 +100,24 @@ const games = [
         <Card>
           <h2 class='text-2xl md:text-4xl lg:text-4xl mb-4 dm-serif'>
             Games
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              games.map((item) => (
+                <li>
+                  <Button target='_blank' href={item.url}>
+                    <i>{item.name}:</i> {item.description}
+                  </Button>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
+      <div class='col-span-2'>
+        <Card>
+          <h2 class='text-2xl md:text-4xl lg:text-4xl mb-4 dm-serif'>
+            Film
           </h2>
           <ul class='flex gap-4 flex-wrap'>
             {
