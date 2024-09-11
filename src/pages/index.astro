@@ -7,21 +7,28 @@ import { Button } from '@eliancodes/brutal-ui';
 import { Card } from '@eliancodes/brutal-ui';
 import authorPic from '../../src/assets/about2.jpg';
 
-const poems = [
-  { name: '1 Poem', location: 'Reed Magazine', url: 'https://www.reedmag.org/' },
+const poems_online = [
   { name: 'Cyparissus Appeals to Apollo for Transmutation', location: 'Nimbus', url: 'https://nimbusmagazine.com/cyparissus-appeals-to-apollo-for-transmutation' },
   { name: 'CONCENTRATE AND ASK AGAIN', location: 'poets.org', url: 'https://poets.org/2019-academy-american-poets-prize-concentrateandaskagain' },
-  { name: 'To the Tiny Boat in the School Fountain', location: 'Rabbit Catastrophe Review', url: 'https://rabbitcatastrophepress.com/rcrstore/rabbit-catastrophe-review-014'},
   { name: '3 Poems', location: 'Menacing Hedge', url: 'https://www.menacinghedge.com/fall2017/entry-mazzoli.php'},
-  { name: 'Mimic Octopus', location: 'Four Chambers', url: 'https://www.facebook.com/FourChambersPress/' },
   { name: 'Fragment Series IV', location: 'Juked', url: 'http://www.juked.com/2016/10/alyssa-mazzoli-fragment-series-iv.asp' },
-  { name: 'Death Uses a Lot of Laundry Detergent', location: 'The Kenyon Review', url: 'https://kenyonreview.org/journal/november-december-2016/' },
-  { name: '2 Poems', location: 'Hermeneutic Chaos Journal', url: 'https://hermeneuticchaos.wordpress.com/' },
   { name: 'Proposed Commercial for Dial Soap', location:'GAMS', url: 'https://gamszine.weebly.com/uploads/5/1/7/0/51707709/december2015gams.pdf' },
 ];
 
-const fiction = [
+const poems_print = [
+  { name: '1 Poem', location: 'Reed Magazine', url: 'https://www.reedmag.org/' },
+  { name: 'To the Tiny Boat in the School Fountain', location: 'Rabbit Catastrophe Review', url: 'https://rabbitcatastrophepress.com/rcrstore/rabbit-catastrophe-review-014'},
+  { name: 'Mimic Octopus', location: 'Four Chambers', url: 'https://www.facebook.com/FourChambersPress/' },
+  { name: 'Death Uses a Lot of Laundry Detergent', location: 'The Kenyon Review', url: 'https://kenyonreview.org/journal/november-december-2016/' },
+  { name: '2 Poems', location: 'Hermeneutic Chaos Journal', url: 'https://hermeneuticchaos.wordpress.com/' },
+  { name: '1 Poem', location: 'Cargoes', url: '' },
+];
+
+const fiction_online = [
   { name: 'The Death of Emmeline', location: 'Nimbus', description: 'A Birthworld story.', url: 'https://nimbusmagazine.com/the-death-of-emmeline' },
+];
+
+const fiction_print = [
   { name: 'The Head', location: "Moledro Magazine", description: 'They say that a person is still conscious up to 4 seconds after being decapitated.', url: 'https://duotrope.com/listing/20813/moledro-magazine' },
 ];
 
@@ -63,11 +70,29 @@ const film = [
       <div class='col-span-3'>
         <Card>
           <h2 class='text-2xl md:text-4xl lg:text-4xl mb-8 dm-serif'>
-            Poetry
+            Poetry - Available Online
           </h2>
           <ul class='flex gap-4 flex-wrap'>
             {
-              poems.map((item) => (
+              poems_online.map((item) => (
+                <li>
+                  <Button target='_blank' href={item.url}>
+                    <b>{item.location}</b> | <i>{item.name}</i>
+                  </Button>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
+      <div class='col-span-3'>
+        <Card>
+          <h2 class='text-2xl md:text-4xl lg:text-4xl mb-8 dm-serif'>
+            Poetry - Available in Print
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              poems_print.map((item) => (
                 <li>
                   <Button target='_blank' href={item.url}>
                     <b>{item.location}</b> | <i>{item.name}</i>
@@ -81,11 +106,29 @@ const film = [
       <div class='col-span-2'>
         <Card>
           <h2 class='text-2xl md:text-4xl lg:text-4xl mb-4 dm-serif'>
-            Fiction
+            Fiction - Available Online
           </h2>
           <ul class='flex gap-4 flex-wrap'>
             {
-              fiction.map((item) => (
+              fiction_online.map((item) => (
+                <li>
+                  <Button target='_blank' href={item.url}>
+                    <b>{item.location}</b> | <i>{item.name}:</i> {item.description}
+                  </Button>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
+        <div class='col-span-2'>
+        <Card>
+          <h2 class='text-2xl md:text-4xl lg:text-4xl mb-4 dm-serif'>
+            Fiction - Available in Print
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              fiction_print.map((item) => (
                 <li>
                   <Button target='_blank' href={item.url}>
                     <b>{item.location}</b> | <i>{item.name}:</i> {item.description}
