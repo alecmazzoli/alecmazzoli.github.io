@@ -1,5 +1,6 @@
 ---
 import Layout from '@layouts/Default.astro';
+import RecentBlogPosts from '@components/generic/RecentBlogPosts.astro';
 import MobileSocials from '@components/home/MobileSocials.astro';
 import { Pill } from '@eliancodes/brutal-ui';
 import { Button } from '@eliancodes/brutal-ui';
@@ -38,8 +39,6 @@ const games = [
 
 const film = [
   { name: 'Fear Beer', description: 'An actor decides to confront a movie theater owner about a retrospective he is hosting for her work.', url: 'https://www.youtube.com/watch?v=BKW8Gw1HkqE'},
-  { name: 'Friday at the Grand Illusion', description: 'Street preachers extoll the Grand Illusion Cinema, days before it goes on hiatus.', url: 'https://www.youtube.com/watch?v=gVvApFLi5iI'},
-  { name: 'test'},
 ];
 ---
 
@@ -60,6 +59,9 @@ const film = [
             <p class='mt-2 outfit text-xl md:text-3xl lg:text-2xl'>
               Alec grew up in Greenville, South Carolina. He received his bachelor's degree in Computer Science from Bryn Mawr College in Pennsylvania. Now he works as a software developer in Seattle, where he lives with his partner and one cat. He loves cooking, collaging, and escape rooms. He is on a quest to watch every horror movie that's ever been made. 
             </p>
+            <Button target={'_self'} href='/blog/'>
+              News &rarr;
+            </Button>
           </div>
         </Card>
       </div>
@@ -175,5 +177,6 @@ const film = [
         </Card>
       </div>
     </section>
+    <RecentBlogPosts />
   </main>
 </Layout>

@@ -12,6 +12,8 @@ const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 const height = 630;
 const width = 1200;
 
+const posts = await getCollection('blog');
+
 export function getStaticPaths() {
   return posts.map((post) => ({
     params: { slug: post.slug },
