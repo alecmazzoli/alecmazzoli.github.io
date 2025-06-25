@@ -1,0 +1,45 @@
+---
+import Layout from '@layouts/Default.astro';
+import RecentBlogPosts from '@components/generic/RecentBlogPosts.astro';
+import MobileSocials from '@components/home/MobileSocials.astro';
+import { Pill } from '@eliancodes/brutal-ui';
+import { Button } from '@eliancodes/brutal-ui';
+import { Card } from '@eliancodes/brutal-ui';
+
+const film = [
+  { name: 'Fear Beer', description: 'An actor decides to confront a movie theater owner about a retrospective he is hosting for her work.', url: 'https://www.youtube.com/watch?v=BKW8Gw1HkqE'},
+  { name: 'Friday at the Grand Illusion', description: 'Street preachers proselytize movie-going outside a beloved Seattle movie theater.', url: 'https://www.youtube.com/watch?v=gVvApFLi5iI'},
+  { name: 'Sally Monica Destroys All Fish', description: 'A woman wish mysterious fish-like tendencies invites her friends over for dinner.', url: 'https://drive.google.com/file/d/1adFtcmgTDBt2tBNDRd9peg8RwHUiqqIX/view?usp=sharing'},
+  { name: 'Rent Control', description: 'Two roommates take matters into their own hands when their landlord raises the rent.', url: 'https://m.youtube.com/watch?si=Muzprai-sj_WVeuf&v=RLfhGGNoFAc&feature=youtu.be'},
+];
+---
+
+<Layout
+  title='Film'
+  pageTitle='Alec Mazzoli | Film'
+  description='Alec Mazzoli's film portfolio.'
+>
+  <main class='bg-gray p-6'>
+    <section id='film' class='grid md:grid-cols-8 gap-8 mt-4'>
+      <h2 class='hidden'>Film</h2>
+      <div class='col-span-3'>
+        <Card>
+          <h2 class='text-2xl md:text-4xl lg:text-4xl mb-8 dm-serif'>
+            Film
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              film.map((item) => (
+                <li>
+                  <Button target='_blank' href={item.url}>
+                    <b>{item.location}</b> | <i>{item.name}</i>
+                  </Button>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
+    </section>
+  </main>
+</Layout>
