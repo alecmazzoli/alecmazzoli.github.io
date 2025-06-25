@@ -5,13 +5,13 @@ import MobileSocials from '@components/home/MobileSocials.astro';
 import { Pill } from '@eliancodes/brutal-ui';
 import { Button } from '@eliancodes/brutal-ui';
 import { Card } from '@eliancodes/brutal-ui';
-import authorPic from '../../src/assets/IMG_9864.PNG';
+import rent_control_pic from '../../src/assets/rent_control_pic.JPG';
 
 const film = [
   { name: 'Fear Beer', description: 'An actor decides to confront a movie theater owner about a retrospective he is hosting for her work.', url: 'https://www.youtube.com/watch?v=BKW8Gw1HkqE'},
   { name: 'Friday at the Grand Illusion', description: 'Street preachers proselytize movie-going outside a beloved Seattle movie theater.', url: 'https://www.youtube.com/watch?v=gVvApFLi5iI'},
   { name: 'Sally Monica Destroys All Fish', description: 'A woman wish mysterious fish-like tendencies invites her friends over for dinner.', url: 'https://drive.google.com/file/d/1adFtcmgTDBt2tBNDRd9peg8RwHUiqqIX/view?usp=sharing'},
-  { name: 'Rent Control', description: 'Two roommates take matters into their own hands when their landlord raises the rent.', url: 'https://m.youtube.com/watch?si=Muzprai-sj_WVeuf&v=RLfhGGNoFAc&feature=youtu.be'},
+  { name: 'Rent Control', description: 'Two roommates take matters into their own hands when their landlord raises the rent.', thumbnail: rent_control_pic, url: 'https://m.youtube.com/watch?si=Muzprai-sj_WVeuf&v=RLfhGGNoFAc&feature=youtu.be'},
 ];
 ---
 
@@ -33,7 +33,7 @@ const film = [
               film.map((item) => (
                 <li>
                   <Button target='_blank' href={item.url}>
-                    <img class="image-shadow" src={authorPic.src} alt="Picture of Alec" width="100%" height="100%" >
+                    <img class="image-shadow" src={item.thumbnail.src} width="100%" height="100%" >
                     <b>{item.name}</b> | <i>{item.description}</i>
                   </Button>
                 </li>
